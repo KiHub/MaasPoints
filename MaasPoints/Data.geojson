@@ -1,0 +1,74 @@
+{
+    "features": [
+    {"type": "Feature",
+        "properties": {
+        "location": "Markt 78",
+        "discipline": "Monument",
+        "title": "Maastricht Town Hall"
+    },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [50.8512304, 5.6910586]
+        } },
+    {"type": "Feature",
+        "properties": {
+        "location": "Vrijthof 100",
+        "discipline": "Square",
+        "title": "Vrijthof"
+    },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [50.849302, 5.6881975]
+        } },
+    {"type": "Feature",
+        "properties": {
+        "location": "Maas",
+        "discipline": "Monument",
+        "title": "Sint Servaasbrug"
+    },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [50.8492495, 5.6957521]
+        } },
+    {"type": "Feature",
+        "properties": {
+        "location": "Sint Pieterstraat 58",
+        "discipline": "Monument",
+        "title": "Leeuwenmolen"
+    },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [50.8485373, 5.6853693]
+        } },
+    {"type": "Feature",
+        "properties": {
+        "location": "Keizer Karelplein 5-A",
+        "discipline": "Monument",
+        "title": "Cappella Sancti Servatii"
+    },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [50.8485373, 5.6853693]
+        } },
+    {"type": "Feature",
+        "properties": {
+        "location": "Avenue Ceramique 250",
+        "discipline": "Museum",
+        "title": "Bonnefanten museum"
+    },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [50.8485373, 5.6853693]
+        } },
+    {"type": "Feature",
+        "properties": {
+        "location": "Aldenhofpark 4-5",
+        "discipline": "Monument",
+        "title": "d'Artagnan monument"
+    },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [50.8485373, 5.6853693]
+        } },
+    ]
+}
