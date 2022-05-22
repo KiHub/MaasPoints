@@ -38,17 +38,17 @@
     },
         "geometry": {
             "type": "Point",
-            "coordinates": [50.8485373, 5.6853693]
+            "coordinates": [50.8445979, 5.6916991]
         } },
     {"type": "Feature",
         "properties": {
-        "location": "Keizer Karelplein 5-A",
-        "discipline": "Monument",
-        "title": "Cappella Sancti Servatii"
+        "location": "Sint-Pietersberg",
+        "discipline": "Nature",
+        "title": "Mount Saint Peter"
     },
         "geometry": {
             "type": "Point",
-            "coordinates": [50.8485373, 5.6853693]
+            "coordinates": [50.82114334618907, 5.685844068541387]
         } },
     {"type": "Feature",
         "properties": {
@@ -58,7 +58,7 @@
     },
         "geometry": {
             "type": "Point",
-            "coordinates": [50.8485373, 5.6853693]
+            "coordinates": [50.8426857, 5.7011281]
         } },
     {"type": "Feature",
         "properties": {
@@ -68,7 +68,7 @@
     },
         "geometry": {
             "type": "Point",
-            "coordinates": [50.8485373, 5.6853693]
+            "coordinates": [50.8441751, 5.6837505]
         } },
     ]
 }

@@ -12,9 +12,7 @@
 		0B453A4D2837C45D00FBFA26 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B453A4C2837C45D00FBFA26 /* MapViewController.swift */; };
 		0B453A522837C46000FBFA26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B453A512837C46000FBFA26 /* Assets.xcassets */; };
 		0B453A552837C46000FBFA26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B453A532837C46000FBFA26 /* LaunchScreen.storyboard */; };
-		0B453A5E2837DE8500FBFA26 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B453A5D2837DE8500FBFA26 /* Places.swift */; };
 		0B453A602837ED2900FBFA26 /* currentPositionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B453A5F2837ED2900FBFA26 /* currentPositionItem.swift */; };
-		0B453A622837F0F200FBFA26 /* Places.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 0B453A612837F0F200FBFA26 /* Places.geojson */; };
 		0B453A642838B29900FBFA26 /* Data.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 0B453A632838B29900FBFA26 /* Data.geojson */; };
 		0B453A662838B59200FBFA26 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B453A652838B59200FBFA26 /* Model.swift */; };
 		0B453A682839385B00FBFA26 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B453A672839385B00FBFA26 /* Animation.swift */; };
@@ -30,9 +28,7 @@
 		0B453A512837C46000FBFA26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B453A542837C46000FBFA26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B453A562837C46000FBFA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0B453A5D2837DE8500FBFA26 /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		0B453A5F2837ED2900FBFA26 /* currentPositionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentPositionItem.swift; sourceTree = "<group>"; };
-		0B453A612837F0F200FBFA26 /* Places.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Places.geojson; sourceTree = "<group>"; };
 		0B453A632838B29900FBFA26 /* Data.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Data.geojson; sourceTree = "<group>"; };
 		0B453A652838B59200FBFA26 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0B453A672839385B00FBFA26 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
@@ -76,9 +72,7 @@
 				0B453A69283948A400FBFA26 /* ColorConverter.swift */,
 				0B453A6B283948BB00FBFA26 /* Constants.swift */,
 				0B453A672839385B00FBFA26 /* Animation.swift */,
-				0B453A5D2837DE8500FBFA26 /* Places.swift */,
 				0B453A5F2837ED2900FBFA26 /* currentPositionItem.swift */,
-				0B453A612837F0F200FBFA26 /* Places.geojson */,
 				0B453A632838B29900FBFA26 /* Data.geojson */,
 				0B453A652838B59200FBFA26 /* Model.swift */,
 				0B453A512837C46000FBFA26 /* Assets.xcassets */,
@@ -146,7 +140,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B453A622837F0F200FBFA26 /* Places.geojson in Resources */,
 				0B453A642838B29900FBFA26 /* Data.geojson in Resources */,
 				0B453A552837C46000FBFA26 /* LaunchScreen.storyboard in Resources */,
 				0B453A522837C46000FBFA26 /* Assets.xcassets in Resources */,
@@ -164,7 +157,6 @@
 				0B453A492837C45D00FBFA26 /* AppDelegate.swift in Sources */,
 				0B453A4B2837C45D00FBFA26 /* SceneDelegate.swift in Sources */,
 				0B453A662838B59200FBFA26 /* Model.swift in Sources */,
-				0B453A5E2837DE8500FBFA26 /* Places.swift in Sources */,
 				0B453A682839385B00FBFA26 /* Animation.swift in Sources */,
 				0B453A6A283948A400FBFA26 /* ColorConverter.swift in Sources */,
 				0B453A602837ED2900FBFA26 /* currentPositionItem.swift in Sources */,
