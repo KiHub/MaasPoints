@@ -18,6 +18,7 @@
 		0B453A682839385B00FBFA26 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B453A672839385B00FBFA26 /* Animation.swift */; };
 		0B453A6A283948A400FBFA26 /* ColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B453A69283948A400FBFA26 /* ColorConverter.swift */; };
 		0B453A6C283948BB00FBFA26 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B453A6B283948BB00FBFA26 /* Constants.swift */; };
+		9F099C908F9E3D540369E06C /* Pods_MaasPoints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A43620884F2EE5412F5C01E /* Pods_MaasPoints.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,9 @@
 		0B453A672839385B00FBFA26 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		0B453A69283948A400FBFA26 /* ColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConverter.swift; sourceTree = "<group>"; };
 		0B453A6B283948BB00FBFA26 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2A43620884F2EE5412F5C01E /* Pods_MaasPoints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaasPoints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FDD2C88A33F16338DCE6642 /* Pods-MaasPoints.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaasPoints.debug.xcconfig"; path = "Target Support Files/Pods-MaasPoints/Pods-MaasPoints.debug.xcconfig"; sourceTree = "<group>"; };
+		E591D09CF467290C64F22E20 /* Pods-MaasPoints.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaasPoints.release.xcconfig"; path = "Target Support Files/Pods-MaasPoints/Pods-MaasPoints.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F099C908F9E3D540369E06C /* Pods_MaasPoints.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +57,8 @@
 			children = (
 				0B453A472837C45D00FBFA26 /* MaasPoints */,
 				0B453A462837C45D00FBFA26 /* Products */,
+				BBED4AF7274A3EC4591E7F7B /* Pods */,
+				DA516F6B4CBF51CFF0C44E2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +89,24 @@
 			path = MaasPoints;
 			sourceTree = "<group>";
 		};
+		BBED4AF7274A3EC4591E7F7B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4FDD2C88A33F16338DCE6642 /* Pods-MaasPoints.debug.xcconfig */,
+				E591D09CF467290C64F22E20 /* Pods-MaasPoints.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DA516F6B4CBF51CFF0C44E2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A43620884F2EE5412F5C01E /* Pods_MaasPoints.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,9 +114,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B453A592837C46000FBFA26 /* Build configuration list for PBXNativeTarget "MaasPoints" */;
 			buildPhases = (
+				924099E9EB109358D2EEB070 /* [CP] Check Pods Manifest.lock */,
 				0B453A412837C45D00FBFA26 /* Sources */,
 				0B453A422837C45D00FBFA26 /* Frameworks */,
 				0B453A432837C45D00FBFA26 /* Resources */,
+				6A34285E2D872BD8DF679957 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -147,6 +174,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6A34285E2D872BD8DF679957 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MaasPoints/Pods-MaasPoints-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MaasPoints/Pods-MaasPoints-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MaasPoints/Pods-MaasPoints-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		924099E9EB109358D2EEB070 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MaasPoints-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0B453A412837C45D00FBFA26 /* Sources */ = {
@@ -294,6 +363,7 @@
 		};
 		0B453A5A2837C46000FBFA26 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FDD2C88A33F16338DCE6642 /* Pods-MaasPoints.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,6 +392,7 @@
 		};
 		0B453A5B2837C46000FBFA26 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E591D09CF467290C64F22E20 /* Pods-MaasPoints.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

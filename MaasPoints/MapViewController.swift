@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import BLTNBoard
 
 class MapViewController: UIViewController {
     
@@ -21,6 +22,8 @@ class MapViewController: UIViewController {
     
     var destinationCoordinate: CLLocationCoordinate2D?
     let locationManger = CLLocationManager()
+    
+    var itemTitle: String?
     
     let mapView: MKMapView = {
         let initLocation = CLLocation(latitude: 50.849463, longitude: 5.688586)
@@ -36,29 +39,64 @@ class MapViewController: UIViewController {
     
     let clearButton: UIButton = {
         let button = UIButton()
+       // button.imageView?.image = UIImage(named: "point")
+        button.setImage(UIImage(named: "clean"), for: .normal)
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("❎", for: .normal)
+  //      button.setTitle("❎", for: .normal)
+    
         button.addTarget(self, action: #selector(clearTapped), for: .touchUpInside)
         return button
     }()
     
     let locationButton: UIButton = {
         let button = UIButton()
+        button.setImage(UIImage(named: "you"), for: .normal)
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("❇️", for: .normal)
+   //     button.setTitle("❇️", for: .normal)
         button.addTarget(self, action: #selector(locationTapped), for: .touchUpInside)
         return button
     }()
     
     let maasLocationButton: UIButton = {
         let button = UIButton()
+        button.setImage(UIImage(named: "maas"), for: .normal)
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("✅", for: .normal)
+    //    button.setTitle("✅", for: .normal)
         button.addTarget(self, action: #selector(maasLocationTapped), for: .touchUpInside)
         return button
+    }()
+    
+    lazy var bottomManager : BLTNItemManager = {
+        
+       var item = BLTNPageItem(title: "")
+        item.image = UIImage(named: "launcLogo")
+        item.actionButtonTitle = "Get directions"
+        item.alternativeButtonTitle = "Close"
+     
+        //item.descriptionText = "This is historical place"
+       
+        item.descriptionText = itemTitle
+        item.actionHandler = { _ in
+            self.getTapped()
+        }
+        
+        item.alternativeHandler = { _ in
+            self.closeTapped()
+            
+        }
+        item.appearance.actionButtonColor = appMainColor
+        item.appearance.alternativeButtonTitleColor = appBackGroundColor
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("loaded"), object: nil, queue: nil) { _ in
+            item.descriptionText = self.itemTitle
+           
+        }
+        
+        
+        return BLTNItemManager(rootItem: item)
     }()
 
 
@@ -85,6 +123,8 @@ class MapViewController: UIViewController {
         view.addSubview(locationButton)
         view.addSubview(clearButton)
         view.addSubview(maasLocationButton)
+        
+     
  
 //        let cityHall = Places(title: "Maastricht City Hall", locationName: "Markt 78", discipline: "Building", coordinate: CLLocationCoordinate2D(latitude: 50.8512304, longitude: 5.6910586))
 //        mapView.addAnnotation(cityHall)
@@ -101,18 +141,18 @@ class MapViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            locationButton.topAnchor.constraint(equalTo: maasLocationButton.bottomAnchor, constant: 16),
-            locationButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            maasLocationButton.topAnchor.constraint(equalTo: locationButton.bottomAnchor, constant: 28),
+            maasLocationButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
         ])
         
         NSLayoutConstraint.activate([
-            clearButton.topAnchor.constraint(equalTo: locationButton.bottomAnchor, constant: 16),
+            clearButton.topAnchor.constraint(equalTo: maasLocationButton.bottomAnchor, constant: 28),
             clearButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
         ])
         
         NSLayoutConstraint.activate([
-            maasLocationButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
-            maasLocationButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            locationButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 28),
+            locationButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
         ])
     }
     
@@ -165,21 +205,24 @@ class MapViewController: UIViewController {
             }
             
             
-            
-//            let startPin = MKPointAnnotation()
-//            startPin.title = "start"
-//            startPin.coordinate = CLLocationCoordinate2D(
-//                latitude: pointsCoordinates[0].coordinate.latitude, longitude: pointsCoordinates[0].coordinate.longitude)
-//      //      mapView.addAnnotation(startPin)
-//
-//            let endPin = MKPointAnnotation()
-//            endPin.title = "end"
-//            endPin.coordinate = CLLocationCoordinate2D(
-//                latitude: pointsCoordinates[1].coordinate.latitude, longitude: pointsCoordinates[1].coordinate.longitude)
-//         // mapView.addAnnotation(endPin)
-//          //  mapView.addAnnotations([startPin, endPin])
         }
         
+    }
+    
+    func getTapped() {
+        print("Get")
+        dismiss(animated: true)
+        guard let destination = destinationCoordinate else {return}
+        print(destination)
+        mapView.removeOverlays(mapView.overlays)
+        mapRoute(destinationCoordinate: destination)
+        
+        
+    }
+    
+    func closeTapped() {
+     dismiss(animated: true)
+        print("Close")
     }
     
 //    func drawRoute(routeData: [CLLocation]) {
@@ -200,23 +243,7 @@ class MapViewController: UIViewController {
 //        }
 //    }
     
-//    func loadData() {
-//
-//        guard let fileName = Bundle.main.url(forResource: "Points", withExtension: "geojson"),
-//              let placesData = try? Data(contentsOf: fileName)
-//        else {return}
-//
-//        do {
-//            let features = try MKGeoJSONDecoder()
-//                .decode(placesData)
-//                .compactMap{$0 as? MKGeoJSONFeature}
-//            let valid = features.compactMap(Places.init)
-//            places.append(contentsOf: valid)
-//        } catch {
-//            print("Error")
-//        }
-//
-//    }
+
     
     
     
@@ -253,7 +280,7 @@ extension MapViewController: MKMapViewDelegate {
         annotationView?.layer.shadowOpacity = 0.5
         annotationView?.layer.shadowOffset = .init(width: 3, height: 3)
         annotationView?.layer.shadowRadius = 15
-     //   annotationView?.calloutOffset = CGPoint(x: 0, y: 25)
+
         
         return annotationView
     }
@@ -262,16 +289,23 @@ extension MapViewController: MKMapViewDelegate {
      animation.shake(view: view)
         print("Tapped")
         destinationCoordinate = view.annotation?.coordinate
+        itemTitle = view.annotation?.title ?? ""
+        
+        
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         print("Info")
 
-        guard let destination = destinationCoordinate else {return}
-        print(destination)
-        mapView.removeOverlays(mapView.overlays)
-        mapRoute(destinationCoordinate: destination)
-        print("Info2")
+//        guard let destination = destinationCoordinate else {return}
+//        print(destination)
+//        mapView.removeOverlays(mapView.overlays)
+//        mapRoute(destinationCoordinate: destination)
+//        print("Info2")
+        
+        NotificationCenter.default.post(name: NSNotification.Name("loaded"), object: nil)
+        
+        bottomManager.showBulletin(above: self)
 
     }
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
