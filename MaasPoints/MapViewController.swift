@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import BLTNBoard
+import SDWebImage
 
 class MapViewController: UIViewController {
     
@@ -16,14 +17,16 @@ class MapViewController: UIViewController {
     var pointsCoordinates: [CLLocation] = []
     var pointsTitle: [String] = []
     var subTitle: [String] = []
+    var disciplineUrl: [String] = []
+    
     let animation = Animation()
-  //  var routeOverlay: MKOverlay?
     let regionInMeters: Double = 5000
     
     var destinationCoordinate: CLLocationCoordinate2D?
     let locationManger = CLLocationManager()
     
     var itemTitle: String?
+
     
     let mapView: MKMapView = {
         let initLocation = CLLocation(latitude: 50.849463, longitude: 5.688586)
@@ -39,12 +42,9 @@ class MapViewController: UIViewController {
     
     let clearButton: UIButton = {
         let button = UIButton()
-       // button.imageView?.image = UIImage(named: "point")
         button.setImage(UIImage(named: "clean"), for: .normal)
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
-  //      button.setTitle("❎", for: .normal)
-    
         button.addTarget(self, action: #selector(clearTapped), for: .touchUpInside)
         return button
     }()
@@ -54,7 +54,6 @@ class MapViewController: UIViewController {
         button.setImage(UIImage(named: "you"), for: .normal)
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
-   //     button.setTitle("❇️", for: .normal)
         button.addTarget(self, action: #selector(locationTapped), for: .touchUpInside)
         return button
     }()
@@ -64,7 +63,6 @@ class MapViewController: UIViewController {
         button.setImage(UIImage(named: "maas"), for: .normal)
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
-    //    button.setTitle("✅", for: .normal)
         button.addTarget(self, action: #selector(maasLocationTapped), for: .touchUpInside)
         return button
     }()
@@ -72,12 +70,9 @@ class MapViewController: UIViewController {
     lazy var bottomManager : BLTNItemManager = {
         
        var item = BLTNPageItem(title: "")
-        item.image = UIImage(named: "launcLogo")
+        item.image = UIImage(named: "point")
         item.actionButtonTitle = "Get directions"
         item.alternativeButtonTitle = "Close"
-     
-        //item.descriptionText = "This is historical place"
-       
         item.descriptionText = itemTitle
         item.actionHandler = { _ in
             self.getTapped()
@@ -89,13 +84,18 @@ class MapViewController: UIViewController {
         }
         item.appearance.actionButtonColor = appMainColor
         item.appearance.alternativeButtonTitleColor = appBackGroundColor
+        item.appearance.titleTextColor = appBackGroundColor
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name("loaded"), object: nil, queue: nil) { _ in
             item.descriptionText = self.itemTitle
-           
+            guard let safeItemTitle = self.itemTitle else {return}
+            if UIImage(named: safeItemTitle) != nil {
+            item.image = UIImage(named: safeItemTitle)
+            } else {
+                item.image = UIImage(named: "launcLogo")
+            }
         }
-        
-        
+
         return BLTNItemManager(rootItem: item)
     }()
 
@@ -119,12 +119,12 @@ class MapViewController: UIViewController {
 
     func setup() {
         view.addSubview(mapView)
-       
         view.addSubview(locationButton)
         view.addSubview(clearButton)
         view.addSubview(maasLocationButton)
         
-     
+        
+        bottomManager.backgroundColor = appThirdColor.withAlphaComponent(0.8)
  
 //        let cityHall = Places(title: "Maastricht City Hall", locationName: "Markt 78", discipline: "Building", coordinate: CLLocationCoordinate2D(latitude: 50.8512304, longitude: 5.6910586))
 //        mapView.addAnnotation(cityHall)
@@ -183,6 +183,8 @@ class MapViewController: UIViewController {
                 let sub = feature.properties.location
                 subTitle.append(sub)
                 
+                let dUrl = feature.properties.discipline
+                disciplineUrl.append(dUrl)
             }
         } catch {
             print("Parse Json error")
@@ -197,14 +199,11 @@ class MapViewController: UIViewController {
                 let mapPin = MKPointAnnotation()
                 mapPin.coordinate.longitude = pin.coordinate.longitude
                 mapPin.coordinate.latitude = pin.coordinate.latitude
-                
                 mapPin.title = pointsTitle[index]
                 mapPin.subtitle = subTitle[index]
                 mapView.addAnnotation(mapPin)
                 index += 1
             }
-            
-            
         }
         
     }
@@ -216,12 +215,11 @@ class MapViewController: UIViewController {
         print(destination)
         mapView.removeOverlays(mapView.overlays)
         mapRoute(destinationCoordinate: destination)
-        
-        
     }
     
     func closeTapped() {
      dismiss(animated: true)
+    //    print(itemImage)
         print("Close")
     }
     
@@ -242,11 +240,7 @@ class MapViewController: UIViewController {
 //
 //        }
 //    }
-    
 
-    
-    
-    
 }
 
 extension MKMapView {
@@ -290,21 +284,13 @@ extension MapViewController: MKMapViewDelegate {
         print("Tapped")
         destinationCoordinate = view.annotation?.coordinate
         itemTitle = view.annotation?.title ?? ""
-        
-        
+
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         print("Info")
-
-//        guard let destination = destinationCoordinate else {return}
-//        print(destination)
-//        mapView.removeOverlays(mapView.overlays)
-//        mapRoute(destinationCoordinate: destination)
-//        print("Info2")
         
         NotificationCenter.default.post(name: NSNotification.Name("loaded"), object: nil)
-        
         bottomManager.showBulletin(above: self)
 
     }
@@ -332,7 +318,6 @@ extension MapViewController: MKMapViewDelegate {
         destinationRequest.requestsAlternateRoutes = true
         
         let directions = MKDirections(request: destinationRequest)
-        
         
         directions.calculate { (responce, error) in
             guard let responce = responce else { return }
@@ -391,7 +376,6 @@ extension MapViewController: CLLocationManagerDelegate {
         
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
-            
         case .notDetermined:
             locationManger.requestWhenInUseAuthorization()
         case .restricted:
@@ -405,7 +389,6 @@ extension MapViewController: CLLocationManagerDelegate {
             mapView.showsUserLocation = true
           //  locationManger.startUpdatingLocation()
             break
-  
         }
     }
     
