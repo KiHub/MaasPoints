@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B421093283BCAF3000469DE /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B421092283BCAF3000469DE /* LocalState.swift */; };
+		0B421095283BCB09000469DE /* OnboardingContainerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B421094283BCB09000469DE /* OnboardingContainerViewControllerDelegate.swift */; };
+		0B421097283BCB1E000469DE /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B421096283BCB1E000469DE /* OnboardingViewController.swift */; };
 		0B453A492837C45D00FBFA26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B453A482837C45D00FBFA26 /* AppDelegate.swift */; };
 		0B453A4B2837C45D00FBFA26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B453A4A2837C45D00FBFA26 /* SceneDelegate.swift */; };
 		0B453A4D2837C45D00FBFA26 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B453A4C2837C45D00FBFA26 /* MapViewController.swift */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B421092283BCAF3000469DE /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
+		0B421094283BCB09000469DE /* OnboardingContainerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewControllerDelegate.swift; sourceTree = "<group>"; };
+		0B421096283BCB1E000469DE /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		0B453A452837C45D00FBFA26 /* MaasPoints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaasPoints.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B453A482837C45D00FBFA26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B453A4A2837C45D00FBFA26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +81,9 @@
 			children = (
 				0B453A482837C45D00FBFA26 /* AppDelegate.swift */,
 				0B453A4A2837C45D00FBFA26 /* SceneDelegate.swift */,
+				0B421092283BCAF3000469DE /* LocalState.swift */,
+				0B421094283BCB09000469DE /* OnboardingContainerViewControllerDelegate.swift */,
+				0B421096283BCB1E000469DE /* OnboardingViewController.swift */,
 				0B453A4C2837C45D00FBFA26 /* MapViewController.swift */,
 				0B453A69283948A400FBFA26 /* ColorConverter.swift */,
 				0B453A6B283948BB00FBFA26 /* Constants.swift */,
@@ -95,7 +104,6 @@
 				4FDD2C88A33F16338DCE6642 /* Pods-MaasPoints.debug.xcconfig */,
 				E591D09CF467290C64F22E20 /* Pods-MaasPoints.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -223,12 +231,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B453A4D2837C45D00FBFA26 /* MapViewController.swift in Sources */,
+				0B421093283BCAF3000469DE /* LocalState.swift in Sources */,
 				0B453A492837C45D00FBFA26 /* AppDelegate.swift in Sources */,
 				0B453A4B2837C45D00FBFA26 /* SceneDelegate.swift in Sources */,
 				0B453A662838B59200FBFA26 /* Model.swift in Sources */,
 				0B453A682839385B00FBFA26 /* Animation.swift in Sources */,
 				0B453A6A283948A400FBFA26 /* ColorConverter.swift in Sources */,
 				0B453A602837ED2900FBFA26 /* currentPositionItem.swift in Sources */,
+				0B421095283BCB09000469DE /* OnboardingContainerViewControllerDelegate.swift in Sources */,
+				0B421097283BCB1E000469DE /* OnboardingViewController.swift in Sources */,
 				0B453A6C283948BB00FBFA26 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
