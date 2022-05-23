@@ -16,25 +16,16 @@ class OnboardingContainerViewController: UIViewController {
     let pageViewController: UIPageViewController
     var pages = [UIViewController]()
     var currentVC: UIViewController
-    
-    private let closeButton: UIButton = {
-        
-        let closeButton = UIButton(type: .system)
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
-        closeButton.tintColor = appSecondColor
-        closeButton.setTitle("Close", for: [])
-        closeButton.addTarget(self, action: #selector(closeTapped), for: .primaryActionTriggered)
-        return closeButton
-    }()
+
     private let startButton: UIButton = {
         
         let button = UIButton(type: .system)
         button.backgroundColor = .clear
         button.layer.borderWidth = 1
-        button.layer.borderColor = appSecondColor.cgColor
+        button.layer.borderColor = appBackGroundColor.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Get started", for: .normal)
-        button.setTitleColor(appSecondColor, for: .normal)
+        button.setTitleColor(appBackGroundColor, for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 14
         button.addTarget(self, action: #selector(atartTapped), for: .touchUpInside)
@@ -45,9 +36,9 @@ class OnboardingContainerViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         
-        let page1 = OnboardingViewController(heroImageName: "launcLogo", titleText: "This is a tiny Maastricht city guide 👋")
-        let page2 = OnboardingViewController(heroImageName: "launcLogo", titleText: "We collect only the best places 🏰")
-        let page3 = OnboardingViewController(heroImageName: "launcLogo", titleText: "We live in Maastricht and we would like to share all the nice city spots 🗺")
+        let page1 = OnboardingViewController(heroImageName: "11", titleText: "👋 This is a tiny Maastricht city guide")
+        let page2 = OnboardingViewController(heroImageName: "22", titleText: "⭐️ We collect only the best places")
+        let page3 = OnboardingViewController(heroImageName: "33", titleText: "🗺 We live in Maastricht and we would like to share nice city spots")
         
         pages.append(page1)
         pages.append(page2)
@@ -71,11 +62,9 @@ class OnboardingContainerViewController: UIViewController {
     }
     
     private func setup() {
-        view.backgroundColor = .systemGray5
         //MARK: - Load and sutup pageVC
         addChild(pageViewController)
         view.addSubview(pageViewController.view)
-        view.addSubview(closeButton)
         view.addSubview(startButton)
         
         pageViewController.didMove(toParent: self)
@@ -100,13 +89,6 @@ class OnboardingContainerViewController: UIViewController {
             view.bottomAnchor.constraint(equalTo: pageViewController.view.bottomAnchor),
         ]
         NSLayoutConstraint.activate(pageViewControllerConstraints)
-        
-        let closeButtonConstraints = [
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: closeButton.trailingAnchor, multiplier: 4),
-            //    closeButton.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: 2),
-            closeButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 4)
-        ]
-        NSLayoutConstraint.activate(closeButtonConstraints)
         
         let startButtonConstraints = [
             startButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
