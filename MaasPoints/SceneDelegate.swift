@@ -11,13 +11,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     let onboardingContainerViewController = OnboardingContainerViewController()
-    let viewController = MapViewController()
+    let viewController = ModuleBuilder.createMainModule()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
  
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = MapViewController()
+        window?.rootViewController = viewController
         window?.makeKeyAndVisible()
         window?.overrideUserInterfaceStyle = .dark
         onboardingContainerViewController.delegate = self

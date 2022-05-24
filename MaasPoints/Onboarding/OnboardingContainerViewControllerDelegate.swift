@@ -37,8 +37,8 @@ class OnboardingContainerViewController: UIViewController {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         
         let page1 = OnboardingViewController(heroImageName: "11", titleText: "👋 This is a tiny Maastricht city guide")
-        let page2 = OnboardingViewController(heroImageName: "22", titleText: "⭐️ We collect only the best places")
-        let page3 = OnboardingViewController(heroImageName: "33", titleText: "🗺 We live in Maastricht and we would like to share nice city spots")
+        let page2 = OnboardingViewController(heroImageName: "22", titleText: "🗺 We collect only the best places")
+        let page3 = OnboardingViewController(heroImageName: "33", titleText: "👫 We live in Maastricht and we would like to share nice city spots")
         
         pages.append(page1)
         pages.append(page2)
@@ -82,24 +82,20 @@ class OnboardingContainerViewController: UIViewController {
     
     private func layout() {
         
-        let pageViewControllerConstraints = [
+        NSLayoutConstraint.activate([
             view.topAnchor.constraint(equalTo: pageViewController.view.topAnchor),
             view.leadingAnchor.constraint(equalTo: pageViewController.view.leadingAnchor),
             view.trailingAnchor.constraint(equalTo: pageViewController.view.trailingAnchor),
             view.bottomAnchor.constraint(equalTo: pageViewController.view.bottomAnchor),
-        ]
-        NSLayoutConstraint.activate(pageViewControllerConstraints)
+        ])
         
-        let startButtonConstraints = [
+        
+        NSLayoutConstraint.activate([
             startButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             startButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
-        ]
-        NSLayoutConstraint.activate(startButtonConstraints)
-        
-        
+        ])
     }
-    
 }
 
 // MARK: - UIPageViewControllerDataSource, swipe logic

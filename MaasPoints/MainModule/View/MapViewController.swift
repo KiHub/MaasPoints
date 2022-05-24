@@ -13,15 +13,12 @@ import BLTNBoard
 
 class MapViewController: UIViewController {
     
-    
-    let networkManager = NetworkManager()
-    lazy var pinsPresenter = PinsPresenter(networkManager: NetworkManager(), mapView: self)
-    //  var pointsData: Place?
+    var pinsPresenter: PinsPresenterProtocol!
+
     var pointsCoordinates: [CLLocation] = []
     var pointsTitle: [String] = []
     var subTitle: [String] = []
-    //   var disciplineUrl: [String] = []
-    
+
     let animation = Animation()
     let regionInMeters: Double = 5000
     
@@ -32,7 +29,6 @@ class MapViewController: UIViewController {
     
     
     let mapView: MKMapView = {
-        let initLocation = CLLocation(latitude: 50.849463, longitude: 5.688586)
         let map = MKMapView()
         let region = MKCoordinateRegion(center: initLocation.coordinate, latitudinalMeters: 50000, longitudinalMeters: 50000)
         let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 50000)
@@ -109,8 +105,8 @@ class MapViewController: UIViewController {
         layout()
         checkLocationServices()
         pinsPresenter.getMapData()
+      
     }
-    
     
     func setup() {
         view.addSubview(mapView)

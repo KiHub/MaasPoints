@@ -7,18 +7,20 @@
 
 import Foundation
 
-
-protocol MapView: AnyObject {
+protocol MapViewProtocol: AnyObject {
     func addPins(points: Place)
 }
 
-class PinsPresenter {
+protocol PinsPresenterProtocol: AnyObject {
+    init(networkManager: NetworkManager, mapView: MapViewProtocol)
+    func getMapData()
+}
+
+class PinsPresenter: PinsPresenterProtocol {
+        let networkManager: NetworkManager
+        var mapView: MapViewProtocol
     
-    let networkManager: NetworkManager
-    var mapView: MapView
-    
-    
-    init(networkManager: NetworkManager, mapView: MapView) {
+    required init(networkManager: NetworkManager, mapView: MapViewProtocol) {
         self.networkManager = networkManager
         self.mapView = mapView
     }

@@ -13,6 +13,7 @@
 		0B42109C283BE8E2000469DE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B42109B283BE8E2000469DE /* NetworkManager.swift */; };
 		0B42109F283C0C14000469DE /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B42109E283C0C14000469DE /* Presenter.swift */; };
 		0B4210A4283C2B51000469DE /* MapViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4210A3283C2B51000469DE /* MapViewControllerExtensions.swift */; };
+		0B4210A7283CE749000469DE /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4210A6283CE749000469DE /* ModuleBuilder.swift */; };
 		0B453A492837C45D00FBFA26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B453A482837C45D00FBFA26 /* AppDelegate.swift */; };
 		0B453A4B2837C45D00FBFA26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B453A4A2837C45D00FBFA26 /* SceneDelegate.swift */; };
 		0B453A4D2837C45D00FBFA26 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B453A4C2837C45D00FBFA26 /* MapViewController.swift */; };
@@ -33,6 +34,7 @@
 		0B42109B283BE8E2000469DE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0B42109E283C0C14000469DE /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		0B4210A3283C2B51000469DE /* MapViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerExtensions.swift; sourceTree = "<group>"; };
+		0B4210A6283CE749000469DE /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		0B453A452837C45D00FBFA26 /* MaasPoints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaasPoints.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B453A482837C45D00FBFA26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B453A4A2837C45D00FBFA26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,17 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		0B4210A5283CE6FB000469DE /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				0B42109A283BE888000469DE /* Model */,
+				0B42109D283C0BF7000469DE /* View */,
+				0B4210A1283C2AFF000469DE /* Presenter */,
+				0B4210A2283C2B1A000469DE /* Extensions */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
 		0B453A3C2837C45D00FBFA26 = {
 			isa = PBXGroup;
 			children = (
@@ -138,16 +151,14 @@
 			children = (
 				0B453A482837C45D00FBFA26 /* AppDelegate.swift */,
 				0B453A4A2837C45D00FBFA26 /* SceneDelegate.swift */,
-				0B42109A283BE888000469DE /* Model */,
-				0B42109D283C0BF7000469DE /* View */,
-				0B4210A1283C2AFF000469DE /* Presenter */,
+				0B4210A6283CE749000469DE /* ModuleBuilder.swift */,
+				0B4210A5283CE6FB000469DE /* MainModule */,
 				0B421099283BE853000469DE /* Services */,
+				0B421098283BE843000469DE /* Onboarding */,
 				0B453A632838B29900FBFA26 /* Data.geojson */,
-				0B4210A2283C2B1A000469DE /* Extensions */,
 				0B453A512837C46000FBFA26 /* Assets.xcassets */,
 				0B453A532837C46000FBFA26 /* LaunchScreen.storyboard */,
 				0B453A562837C46000FBFA26 /* Info.plist */,
-				0B421098283BE843000469DE /* Onboarding */,
 			);
 			path = MaasPoints;
 			sourceTree = "<group>";
@@ -295,6 +306,7 @@
 				0B453A682839385B00FBFA26 /* Animation.swift in Sources */,
 				0B453A6A283948A400FBFA26 /* ColorConverter.swift in Sources */,
 				0B421095283BCB09000469DE /* OnboardingContainerViewControllerDelegate.swift in Sources */,
+				0B4210A7283CE749000469DE /* ModuleBuilder.swift in Sources */,
 				0B421097283BCB1E000469DE /* OnboardingViewController.swift in Sources */,
 				0B453A6C283948BB00FBFA26 /* Constants.swift in Sources */,
 			);
