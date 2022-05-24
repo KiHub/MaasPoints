@@ -19,6 +19,4 @@ class ModuleBuilder: Builder {
         mapView.pinsPresenter = pinsPresenter
         return mapView
     }
-    
-    
 }

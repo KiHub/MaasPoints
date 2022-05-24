@@ -16,7 +16,7 @@ class OnboardingContainerViewController: UIViewController {
     let pageViewController: UIPageViewController
     var pages = [UIViewController]()
     var currentVC: UIViewController
-
+    
     private let startButton: UIButton = {
         
         let button = UIButton(type: .system)

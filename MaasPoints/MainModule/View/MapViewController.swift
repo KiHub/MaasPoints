@@ -14,11 +14,11 @@ import BLTNBoard
 class MapViewController: UIViewController {
     
     var pinsPresenter: PinsPresenterProtocol!
-
+    
     var pointsCoordinates: [CLLocation] = []
     var pointsTitle: [String] = []
     var subTitle: [String] = []
-
+    
     let animation = Animation()
     let regionInMeters: Double = 5000
     
@@ -105,7 +105,7 @@ class MapViewController: UIViewController {
         layout()
         checkLocationServices()
         pinsPresenter.getMapData()
-      
+        
     }
     
     func setup() {

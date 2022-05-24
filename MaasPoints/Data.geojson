@@ -70,5 +70,67 @@
             "type": "Point",
             "coordinates": [50.8441751, 5.6837505]
         } },
+    
+    {"type": "Feature",
+        "properties": {
+        "location": "Stadsmuur Klein Grachtje",
+        "discipline": "Monument",
+        "title": "Klein Grachtje Defensive Wall"
+    },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [50.845961498266135, 5.689592358312586]
+        } },
+    {"type": "Feature",
+        "properties": {
+        "location": "Cabergerweg",
+        "discipline": "Monument",
+        "title": "Hoge Fronten"
+    },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [50.85426637287394, 5.679375479199442]
+        } },
+    {"type": "Feature",
+        "properties": {
+        "location": "Bassin",
+        "discipline": "Dock",
+        "title": "Het Bassin"
+    },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [50.85564647498549, 5.691815390236003]
+        } },
+    
+    {"type": "Feature",
+        "properties": {
+        "location": "Von Dopfflaan 4",
+        "discipline": "Cave",
+        "title": "De Jezuïetenberg"
+    },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [50.82288898396001, 5.664722550822259]
+        } },
+    {"type": "Feature",
+        "properties": {
+        "location": "Stenenbrug 3",
+        "discipline": "Bakery",
+        "title": "Bisschopsmolen"
+    },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [50.84638793518929, 5.692667493989106]
+        } },
+    {"type": "Feature",
+        "properties": {
+        "location": "Dominicanerkerkstraat 1",
+        "discipline": "Bookstore",
+        "title": "Bookstore Dominicanen"
+    },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [50.85010086142823, 5.6896178523579115]
+        } },
     ]
 }

@@ -149,7 +149,7 @@ extension MapViewController {
         print("Location tapped")
     }
     @objc func maasLocationTapped(_ sender: UIButton) {
-     //  let initLocation = CLLocation(latitude: 50.849463, longitude: 5.688586)
+        //  let initLocation = CLLocation(latitude: 50.849463, longitude: 5.688586)
         mapView.centerLocation(initLocation)
         print("Maas location tapped")
     }

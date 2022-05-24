@@ -61,7 +61,6 @@ extension OnboardingViewController {
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         label.text = titleText
-        
     }
     func layout() {
         stackView.addArrangedSubview(imageView)
@@ -75,8 +74,6 @@ extension OnboardingViewController {
             stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 3)
         ])
-        
     }
-    
 }
 

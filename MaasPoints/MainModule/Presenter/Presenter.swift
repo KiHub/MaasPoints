@@ -17,8 +17,8 @@ protocol PinsPresenterProtocol: AnyObject {
 }
 
 class PinsPresenter: PinsPresenterProtocol {
-        let networkManager: NetworkManager
-        var mapView: MapViewProtocol
+    let networkManager: NetworkManager
+    weak var mapView: MapViewProtocol?
     
     required init(networkManager: NetworkManager, mapView: MapViewProtocol) {
         self.networkManager = networkManager
@@ -28,10 +28,10 @@ class PinsPresenter: PinsPresenterProtocol {
     func getMapData() {
         
         if let pointsJson = networkManager.getJson() {
-            networkManager.parseJson(jsonData: pointsJson) { [self] result in
+            networkManager.parseJson(jsonData: pointsJson) { [weak self] result in
                 switch result {
                 case .success(let points):
-                    mapView.addPins(points: points)
+                    self?.mapView?.addPins(points: points)
                 case .failure(_):
                     print("Data error")
                 }

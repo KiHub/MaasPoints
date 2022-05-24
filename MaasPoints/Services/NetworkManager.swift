@@ -7,8 +7,12 @@
 
 import Foundation
 
+protocol NetworkManagerProtocol {
+    func getJson() -> Data?
+    func parseJson(jsonData: Data, completion: @escaping (Result<Place,Error>) -> Void)
+}
 
-class NetworkManager {
+class NetworkManager: NetworkManagerProtocol {
     
     
     func getJson() -> Data? {
