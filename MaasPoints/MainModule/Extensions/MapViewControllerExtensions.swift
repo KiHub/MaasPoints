@@ -144,7 +144,11 @@ extension MapViewController {
         print("Clear tapped")
     }
     @objc func locationTapped(_ sender: UIButton) {
+       // locationManger.startUpdatingLocation()
         guard let location = locationManger.location else {return}
+        
+        print("Your location \(location.coordinate.latitude)")
+        print("Your location \(location.coordinate.longitude)")
         mapView.centerLocation(location)
         print("Location tapped")
     }

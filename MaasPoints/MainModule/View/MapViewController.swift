@@ -30,9 +30,10 @@ class MapViewController: UIViewController {
     
     let mapView: MKMapView = {
         let map = MKMapView()
+       // let region = MKCoordinateRegion(center: initLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
         let region = MKCoordinateRegion(center: initLocation.coordinate, latitudinalMeters: 50000, longitudinalMeters: 50000)
-        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 50000)
-        map.setCameraZoomRange(zoomRange, animated: true)
+      //  let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 50000)
+     //   map.setCameraZoomRange(zoomRange, animated: true)
         map.centerLocation(initLocation)
         map.overrideUserInterfaceStyle = .dark
         map.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region), animated: true)
@@ -73,6 +74,7 @@ class MapViewController: UIViewController {
         item.actionButtonTitle = "Get directions"
         item.alternativeButtonTitle = "Close"
         item.descriptionText = itemTitle
+
         item.actionHandler = { _ in
             self.getTapped()
         }
@@ -101,10 +103,10 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        setup()
-        layout()
         checkLocationServices()
         pinsPresenter.getMapData()
+        setup()
+        layout()
         
     }
     
@@ -114,6 +116,17 @@ class MapViewController: UIViewController {
         view.addSubview(clearButton)
         view.addSubview(maasLocationButton)
         bottomManager.backgroundColor = appThirdColor.withAlphaComponent(0.8)
+        locationButton.isEnabled = false
+
+        if let distance = userDistance(from: initLocation) {
+            print("Distance: \(distance)")
+            if distance < 5000 {
+            locationButton.isEnabled = true
+            }
+        }
+        
+
+        
     }
     
     func layout() {
@@ -145,6 +158,8 @@ class MapViewController: UIViewController {
     
     func getTapped() {
         print("Get")
+              
+        
         dismiss(animated: true)
         guard let destination = destinationCoordinate else {return}
         print(destination)
@@ -155,6 +170,19 @@ class MapViewController: UIViewController {
     func closeTapped() {
         dismiss(animated: true)
         print("Close")
+    }
+    
+    private func userDistance(from point: CLLocation) -> Double? {
+     //   guard let location = locationManger.location else {return}
+        guard let userLocation = locationManger.location else {
+            return nil
+        }
+        let pointLocation = CLLocation(
+            latitude:  point.coordinate.latitude,
+            longitude: point.coordinate.longitude
+        )
+        print(pointLocation)
+        return userLocation.distance(from: pointLocation)
     }
     
 }

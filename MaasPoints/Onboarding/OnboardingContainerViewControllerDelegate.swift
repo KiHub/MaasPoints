@@ -36,9 +36,9 @@ class OnboardingContainerViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         
-        let page1 = OnboardingViewController(heroImageName: "11", titleText: "👋 This is a tiny Maastricht city guide")
-        let page2 = OnboardingViewController(heroImageName: "22", titleText: "🗺 We collect only the best places")
-        let page3 = OnboardingViewController(heroImageName: "33", titleText: "👫 We live in Maastricht and we would like to share nice city spots")
+        let page1 = OnboardingViewController(heroImageName: "11", titleText: "👋 Discover only the best points of interest in Maastricht")
+        let page2 = OnboardingViewController(heroImageName: "22", titleText: "🗺 Here we just show teasers of popular and hidden gems, without any spoilers")
+        let page3 = OnboardingViewController(heroImageName: "33", titleText: "👫 Let's start exploring!")
         
         pages.append(page1)
         pages.append(page2)
