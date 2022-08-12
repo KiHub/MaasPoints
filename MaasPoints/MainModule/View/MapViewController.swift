@@ -13,6 +13,7 @@ import BLTNBoard
 
 class MapViewController: UIViewController {
     
+    
     var pinsPresenter: PinsPresenterProtocol!
     
     var pointsCoordinates: [CLLocation] = []
@@ -30,10 +31,10 @@ class MapViewController: UIViewController {
     
     let mapView: MKMapView = {
         let map = MKMapView()
-       // let region = MKCoordinateRegion(center: initLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+        // let region = MKCoordinateRegion(center: initLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
         let region = MKCoordinateRegion(center: initLocation.coordinate, latitudinalMeters: 50000, longitudinalMeters: 50000)
-      //  let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 50000)
-     //   map.setCameraZoomRange(zoomRange, animated: true)
+        //  let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 50000)
+        //   map.setCameraZoomRange(zoomRange, animated: true)
         map.centerLocation(initLocation)
         map.overrideUserInterfaceStyle = .dark
         map.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region), animated: true)
@@ -74,7 +75,7 @@ class MapViewController: UIViewController {
         item.actionButtonTitle = "Get directions"
         item.alternativeButtonTitle = "Close"
         item.descriptionText = itemTitle
-
+        
         item.actionHandler = { _ in
             self.getTapped()
         }
@@ -117,15 +118,15 @@ class MapViewController: UIViewController {
         view.addSubview(maasLocationButton)
         bottomManager.backgroundColor = appThirdColor.withAlphaComponent(0.8)
         locationButton.isEnabled = false
-
+        
         if let distance = userDistance(from: initLocation) {
             print("Distance: \(distance)")
             if distance < 5000 {
-            locationButton.isEnabled = true
+                locationButton.isEnabled = true
             }
         }
         
-
+        
         
     }
     
@@ -158,13 +159,27 @@ class MapViewController: UIViewController {
     
     func getTapped() {
         print("Get")
-              
         
-        dismiss(animated: true)
-        guard let destination = destinationCoordinate else {return}
-        print(destination)
-        mapView.removeOverlays(mapView.overlays)
-        mapRoute(destinationCoordinate: destination)
+        
+        if let distance = userDistance(from: initLocation) {
+            print("Distance: \(distance)")
+            if distance < 5000 {
+                dismiss(animated: true)
+                guard let destination = destinationCoordinate else {return}
+                print(destination)
+                mapView.removeOverlays(mapView.overlays)
+                mapRoute(destinationCoordinate: destination)
+            } else {
+                dismiss(animated: true)
+                let alert = UIAlertController(title: "Sorry", message: "You are too far from Maastricht", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                alert.view.tintColor = appMainColor
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+        }
+        
+        
     }
     
     func closeTapped() {
@@ -173,7 +188,7 @@ class MapViewController: UIViewController {
     }
     
     private func userDistance(from point: CLLocation) -> Double? {
-     //   guard let location = locationManger.location else {return}
+        //   guard let location = locationManger.location else {return}
         guard let userLocation = locationManger.location else {
             return nil
         }
@@ -186,5 +201,4 @@ class MapViewController: UIViewController {
     }
     
 }
-
 
