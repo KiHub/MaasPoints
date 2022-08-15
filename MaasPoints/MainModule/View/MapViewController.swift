@@ -31,10 +31,7 @@ class MapViewController: UIViewController {
     
     let mapView: MKMapView = {
         let map = MKMapView()
-        // let region = MKCoordinateRegion(center: initLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
         let region = MKCoordinateRegion(center: initLocation.coordinate, latitudinalMeters: 50000, longitudinalMeters: 50000)
-        //  let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 50000)
-        //   map.setCameraZoomRange(zoomRange, animated: true)
         map.centerLocation(initLocation)
         map.overrideUserInterfaceStyle = .dark
         map.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region), animated: true)
@@ -125,9 +122,6 @@ class MapViewController: UIViewController {
                 locationButton.isEnabled = true
             }
         }
-        
-        
-        
     }
     
     func layout() {

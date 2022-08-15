@@ -14,7 +14,6 @@ protocol NetworkManagerProtocol {
 
 class NetworkManager: NetworkManagerProtocol {
     
-    
     func getJson() -> Data? {
         if let path = Bundle.main.path(forResource: "Data", ofType: "geojson") {
             do {
